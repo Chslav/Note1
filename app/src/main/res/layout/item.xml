@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<TextView
+    android:id="@+id/item_Text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:paddingStart="2dp"
+    android:paddingEnd="2dp"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:textColor="@color/white"
+    android:textSize="14sp"
+    android:background="@drawable/border_white">
+</TextView>
+</RelativeLayout>

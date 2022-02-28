@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Note1</string>
+    <string name="edit_note">Редактировать</string>
+    <string name="setting">Настройки</string>
+    <string name="action_share">Отправить</string>
+    <string name="delete_note">Удалить</string>
+    <string name="edit_text">Введите текст...</string>
+    <string name="todo">TODO</string>
+    <string name="search_hint">Искать в заметках</string>
+    <string name="no_memory_access">нет доступа к памяти</string>
+    <string name="deleted">Удалено</string>
+    <string name="undo">ОТМЕНА</string>
+    <string name="file_saved">файл сохранен</string>
+    <string name="permission_granted">Доступ разрешен</string>
+    <string name="permission_not_granted">Доступ не разрешен</string>
+    <string name="notes">Заметки</string>
+    <string name="add">+</string>
+</resources>
