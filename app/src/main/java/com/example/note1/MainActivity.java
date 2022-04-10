@@ -94,13 +94,12 @@ public class MainActivity extends AppCompatActivity {
                 if (flag) {
                     imageButton.setImageResource (R.drawable.for_card_2column_24dp);
                     column = 1;
-                    textToRecycleView ();
                 } else {
                     // возвращаем первую картинку
                     imageButton.setImageResource(R.drawable.for_card_1column_24dp);
                     column = 2;
-                    textToRecycleView ();
                 }
+                textToRecycleView ();
                 flag = !flag;
             }
         });
@@ -160,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Метод вызывается при выборе действия на панели приложения.
+    @SuppressLint("NonConstantResourceId")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -178,9 +178,9 @@ public class MainActivity extends AppCompatActivity {
                 textToRecycleView ();
                 updateNote1Widget (this);
             }
-            case R.id.setting: {
+            /*case R.id.setting: {
             //пока ничего не настраиваем
-            }
+            }*/
             return true;
             default:
                 return super.onOptionsItemSelected (item);
@@ -197,9 +197,9 @@ public class MainActivity extends AppCompatActivity {
                 if (PermissionUtils.hasPermissions(this)) {
                     searchTXT (dirNotes);
                     textToRecycleView ();
-                    Toast.makeText(this, getResources().getString (R.string.permission_granted), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, getResources().getString (R.string.permission_granted), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, getResources().getString (R.string.permission_not_granted), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, getResources().getString (R.string.permission_not_granted), Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -214,9 +214,9 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 searchTXT (dirNotes);
                 textToRecycleView ();
-                Toast.makeText(this, getResources().getString (R.string.permission_granted), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, getResources().getString (R.string.permission_granted), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, getResources().getString (R.string.permission_not_granted), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, getResources().getString (R.string.permission_not_granted), Toast.LENGTH_SHORT).show();
                 finish();
             }
         }

@@ -42,7 +42,6 @@ public class EditNoteActivity extends AppCompatActivity {
     private String undoText;
     private EditText editText;
     private String textNew;
-    private String fileName;
     private String noteTextOld;
     private String fileNotePath;
 
@@ -156,7 +155,7 @@ public class EditNoteActivity extends AppCompatActivity {
         String volumeRootPath = "";
         @SuppressLint({"NewApi", "LocalSuppress"}) StorageManager myStorageManager = (StorageManager) getSystemService(Context.STORAGE_SERVICE);
         @SuppressLint({"NewApi", "LocalSuppress"}) StorageVolume mySV = myStorageManager.getPrimaryStorageVolume();
-        Class<?> storageVolumeClazz = null;
+        Class<?> storageVolumeClazz;
         try {
             storageVolumeClazz = Class.forName("android.os.storage.StorageVolume");
             Method getPath = storageVolumeClazz.getMethod("getPath");
@@ -169,6 +168,15 @@ public class EditNoteActivity extends AppCompatActivity {
 
     // создание имени файла .txt и запись в него text заметки
     private void writeToFile (String text) {
+        try {
+            if (fileNotePath != null) {
+                File file = new File (fileNotePath);
+                if (file.exists ()) file.delete ();
+            }
+        }  catch (Exception e) {
+            Toast.makeText(this, e.toString (), Toast.LENGTH_LONG).show();
+        }
+        String fileName;
         if (text.trim ().length () < 20) {
             fileName = text.trim ();
         } else {
@@ -184,7 +192,7 @@ public class EditNoteActivity extends AppCompatActivity {
             fos.write (buffer, 0, buffer.length);
             fos.close ();
 
-            showToast (getResources().getString (R.string.file_saved));
+            //showToast (getResources().getString (R.string.file_saved));
             updateNote1Widget (this);
         } catch (Exception e) {
             Toast.makeText (this, e.toString (), Toast.LENGTH_LONG).show ();

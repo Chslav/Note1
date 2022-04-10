@@ -128,7 +128,7 @@ public class DataProvider implements RemoteViewsService.RemoteViewsFactory {
             File temp1;// вспомогательная переменная
             while (flag) {
                 flag = false;    // устанавливаем флаг в false в ожидании возможного свопа (замены местами)
-                for (int j = 0; j < files.length - 1; j++) {
+                for (int j = 0; j < (files != null ? files.length : 0) - 1; j++) {
                     if (files[j].lastModified() < files[j+1].lastModified()) {
                         // меняем элементы местами
                         temp1 = files[j];
